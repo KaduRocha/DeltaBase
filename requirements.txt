@@ -5,6 +5,7 @@ openpyxl  # (para Excel opcional)
 tabulate  # (para exibir no terminal)
 psycopg2-binary
 chardet
+unidecode
 
 # pandas==2.3.1
 # sqlalchemy==2.0.41
