@@ -1,0 +1,8 @@
+pandas
+sqlalchemy
+pyyaml
+openpyxl  # (para Excel opcional)
+tabulate  # (para exibir no terminal)
+psycopg2-binary
+PyYAML
+chardet
