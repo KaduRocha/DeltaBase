@@ -1,4 +1,13 @@
 import os
+import logging
+
+# -----------------------------------------
+# Configuração básica de logging
+# -----------------------------------------
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 # -----------------------------------------
 # Cria a estrutura básica de diretórios do projeto.
@@ -23,9 +32,9 @@ def criar_pastas():
     for pasta in pastas:
         try:
             os.makedirs(pasta, exist_ok=True)
-            print(f"[OK] Pasta criada (ou já existia): {pasta}")
+            logging.info(f"Pasta criada (ou já existia): {pasta}")
         except Exception as e:
-            print(f"[ERRO] Não foi possível criar a pasta '{pasta}': {e}")
+            logging.error(f"Não foi possível criar a pasta '{pasta}': {e}")
 
 # -----------------------------------------
 # Cria arquivos iniciais do projeto.
@@ -41,9 +50,9 @@ def criar_arquivos_iniciais():
     arquivos = {
         "core/__init__.py": "",
         "config/config.yaml": "# Configuração inicial do projeto\n",
-        "files/input/.gitkeep": "",
-        "files/output/.gitkeep": "",
-        "files/relatorio/.gitkeep": ""
+        # "files/input/.gitkeep": "",
+        # "files/output/.gitkeep": "",
+        # "files/relatorio/.gitkeep": ""
     }
 
     for caminho, conteudo in arquivos.items():
@@ -51,11 +60,11 @@ def criar_arquivos_iniciais():
             try:
                 with open(caminho, "w", encoding="utf-8") as f:
                     f.write(conteudo)
-                print(f"[OK] Arquivo criado: {caminho}")
+                logging.info(f"Arquivo criado: {caminho}")
             except Exception as e:
-                print(f"[ERRO] Falha ao criar '{caminho}': {e}")
+                logging.error(f"Falha ao criar '{caminho}': {e}")
         else:
-            print(f"[SKIP] Arquivo já existe: {caminho}")
+            logging.debug(f"Arquivo já existe: {caminho}")
 
 if __name__ == "__main__":
     criar_pastas()
