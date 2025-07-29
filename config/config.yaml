@@ -5,10 +5,17 @@ source_a:
   quotechar: "\""
   encoding: "utf-8"
 
+# source_b:
+#   type: database
+#   conn_str: "postgresql://postgres:Oshikawa!8@localhost:5432/comparador"
+#   table: "origemB"
+
 source_b:
-  type: database
-  conn_str: "postgresql://postgres:Oshikawa!8@localhost:5432/comparador"
-  table: "origemB"
+  type: file
+  path: "files/input/origemB.txt"
+  sep: ";"
+  quotechar: "\""
+  encoding: "utf-8"
 
 comparison:
   key: "MES_REFERENCIA,NIS_FAVORECIDO"
